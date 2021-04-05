@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raindrops</title>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital@0;1&display=swap" rel="stylesheet">
+
+    <style>
+        *{
+            margin: 0%;
+            padding: 0%;
+        }
+        body{
+            background-color:#44617b ;
+            overflow: hidden;
+        }
+        .circle{
+            animation: circleGrow 2s linear;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            position: absolute;
+            height: 100px;
+            width: 100px;
+        }
+        @keyframes circleGrow {
+            to{
+                opacity: 0;
+                transform: scale(5);
+            }
+        }
+        .screen{
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .title{
+            font-family: 'Roboto Mono';
+            font-style: italic;
+            font-size:x-large;
+            color: rgb(0, 0, 0);
+            text-align: center;
+        }
+        .by{
+            text-align: center;
+            font-family: 'Roboto Mono';
+            margin-top: 20px;
+        }
+        a:visited{
+            color: black;
+        }
+        a{
+            color: black;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="screen">
+        <div class="container">
+            <div class="title"><h1>Raindrops</h1></div>
+            <div class="by">
+                <p>
+                    By<b>
+                        <a href="https://github.com/HamuzaDesu" target="_blank" class="bold">HamuzaDesu</a>
+                    </b>
+                </p>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        function createCircle(){
+            var circle = document.createElement('div')
+            circle.style.top = Math.random() * innerHeight + 'px'
+            circle.style.right = Math.random() * innerWidth + 'px'
+            circle.classList.add('circle')
+            document.body.appendChild(circle)
+
+            setTimeout(() => {
+                circle.remove()
+            }, 2000)
+        }
+
+        setInterval(createCircle, 300)
+    </script>
+</body>
+</html>
